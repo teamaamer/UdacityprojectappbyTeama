@@ -1,1 +1,48 @@
+@import "./breakPoints"; // Import breakpoints for responsive design
 
+* {
+  box-sizing: border-box; // Ensure padding and borders are included in element's total width and height
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url("../images/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "REM", sans-serif;
+
+  .container {
+    min-height: 100vh; // Ensure the container takes at least the full height of the viewport
+
+    .site-header {
+      background-color: #333; // Dark background for the header
+      color: #fff; // White text color
+      padding: 20px;
+
+      .site-title {
+        font-size: 23px;
+        @include respond-to("sm") {
+          font-size: 48px; // Adjust font size on small screens
+        }
+        margin: 0;
+        text-align: center; // Center the title
+        text-transform: uppercase; // Uppercase letters for the title
+      }
+    }
+
+    #form_row {
+      width: 90%; // Default width for the form
+      @include respond-to("lg") {
+        width: 50%; // Adjust width on large screens
+      }
+
+      #city_error {
+        display: none; // Initially hide city error message
+      }
+
+      #date_error {
+        display: none; // Initially hide date error message
+      }
+    }
+  }
+}
