@@ -1,1 +1,18 @@
+// Define breakpoints for responsive design
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px
+);
 
+// Mixin for media queries based on defined breakpoints
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;  // Insert the styles to apply at the specified breakpoint
+    }
+  } @else {
+    @error "Invalid breakpoint name: #{$breakpoint}. Available breakpoints: #{map-keys($breakpoints)}.";
+  }
+}
